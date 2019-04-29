@@ -17,7 +17,7 @@ This example explains how to implement the custom control in Xamarin.Forms. In t
 4. Run the application.
 
 ## Screenshot
-![Custom control in xamarin forms](CustomControl/Screenshot/custom-control.png)
+![Custom control in xamarin forms](Screenshot/custom-control.png)
 
 ## License
 
