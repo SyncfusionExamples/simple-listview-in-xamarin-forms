@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:CustomControl"
+             x:Class="CustomControl.MainPage"
+             Padding="0,5,0,0">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:Key="fontSize"
+                        x:TypeArguments="x:Double">
+                <On Platform="UWP">
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>18</OnIdiom.Phone>
+                        <OnIdiom.Tablet>20</OnIdiom.Tablet>
+                        <OnIdiom.Desktop>20</OnIdiom.Desktop>
+                    </OnIdiom>
+                </On>
+                <On Platform="Android,iOS">
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>20</OnIdiom.Phone>
+                        <OnIdiom.Tablet>18</OnIdiom.Tablet>
+                    </OnIdiom>
+                </On>
+            </OnPlatform>
+
+            <OnPlatform x:Key="fontSize2"
+                        x:TypeArguments="x:Double">
+                <On Platform="UWP">
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>12</OnIdiom.Phone>
+                        <OnIdiom.Tablet>12</OnIdiom.Tablet>
+                        <OnIdiom.Desktop>12</OnIdiom.Desktop>
+                    </OnIdiom>
+                </On>
+                <On Platform="Android,iOS">
+                    <OnIdiom x:TypeArguments="x:Double">
+                        <OnIdiom.Phone>12</OnIdiom.Phone>
+                        <OnIdiom.Tablet>14</OnIdiom.Tablet>
+                    </OnIdiom>
+                </On>
+            </OnPlatform>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <local:ContactsViewModel x:Name="viewModel" />
+    </ContentPage.BindingContext>
+
+    <local:LinearScrollView>
+        <local:Container x:Name="scroll">
+            <local:Container.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Grid Padding="5,0,5,0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="60" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <ContentView Padding="0, 0, 5, 0">
+                                <Label Text="{Binding ContactImage}" BackgroundColor="{Binding ContactImageColor}" TextColor="White" FontSize="32"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                            </ContentView>
+                            <StackLayout Grid.Column="1">
+                                <Label LineBreakMode="NoWrap" TextColor="#474747" Text="{Binding ContactName}" FontSize="{StaticResource fontSize }" FontAttributes="Bold" VerticalTextAlignment="Center" />
+                                <Label TextColor="#474747" LineBreakMode="NoWrap" Text="{Binding ContactNumber}" FontSize="{StaticResource fontSize2 }" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+                            </StackLayout>
+                            <Label Grid.Column="2" TextColor="#474747" LineBreakMode="NoWrap" Text="{Binding CallTime}" FontSize="{StaticResource fontSize2 }" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+                        </Grid>
+                        <BoxView BackgroundColor="Gray"  HeightRequest="1" />
+                    </StackLayout>
+                </DataTemplate>
+            </local:Container.ItemTemplate>
+        </local:Container>
+    </local:LinearScrollView>
+
+</ContentPage>
