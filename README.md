@@ -16,6 +16,9 @@ This example explains how to implement the custom control in Xamarin.Forms. In t
 3. Clean and build the application.
 4. Run the application.
 
+## Screenshot
+![Custom control in xamarin forms](CustomControl\Screenshot\custom-control.png)
+
 ## License
 
 Syncfusion has no liability for any damage or consequence that may arise by using or viewing the samples. The samples are for demonstrative purposes, and if you choose to use or access the samples, you agree to not hold Syncfusion liable, in any form, for any damage that is related to use, for accessing, or viewing the samples. By accessing, viewing, or seeing the samples, you acknowledge and agree Syncfusion’s samples will not allow you seek injunctive relief in any form for any claim related to the sample. If you do not agree to this, do not view, access, utilize, or otherwise do anything with Syncfusion’s samples.
