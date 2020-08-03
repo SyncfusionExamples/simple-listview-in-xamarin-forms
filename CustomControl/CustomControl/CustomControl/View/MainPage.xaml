@@ -47,31 +47,30 @@
         <local:ContactsViewModel x:Name="viewModel" />
     </ContentPage.BindingContext>
 
-    <local:LinearScrollView>
-        <local:Container x:Name="scroll">
-            <local:Container.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout>
-                        <Grid Padding="5,0,5,0">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="60" />
-                                <ColumnDefinition Width="*" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <ContentView Padding="0, 0, 5, 0">
-                                <Label Text="{Binding ContactImage}" BackgroundColor="{Binding ContactImageColor}" TextColor="White" FontSize="32"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-                            </ContentView>
-                            <StackLayout Grid.Column="1">
-                                <Label LineBreakMode="NoWrap" TextColor="#474747" Text="{Binding ContactName}" FontSize="{StaticResource fontSize }" FontAttributes="Bold" VerticalTextAlignment="Center" />
-                                <Label TextColor="#474747" LineBreakMode="NoWrap" Text="{Binding ContactNumber}" FontSize="{StaticResource fontSize2 }" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
-                            </StackLayout>
-                            <Label Grid.Column="2" TextColor="#474747" LineBreakMode="NoWrap" Text="{Binding CallTime}" FontSize="{StaticResource fontSize2 }" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
-                        </Grid>
-                        <BoxView BackgroundColor="Gray"  HeightRequest="1" />
-                    </StackLayout>
-                </DataTemplate>
-            </local:Container.ItemTemplate>
-        </local:Container>
-    </local:LinearScrollView>
+     <local:SimpleListView ItemHeight="60"
+                          DataSource="{Binding Contacts}">
+        <local:SimpleListView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <ContentView Padding="5, 0, 5, 0">
+                            <Label Text="{Binding ContactImage}" BackgroundColor="{Binding ContactImageColor}" TextColor="White" FontSize="32"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                        </ContentView>
+                        <StackLayout Grid.Column="1">
+                            <Label LineBreakMode="NoWrap" TextColor="#474747" Text="{Binding ContactName}" FontSize="16" FontAttributes="Bold" VerticalTextAlignment="Center" />
+                            <Label TextColor="#474747" LineBreakMode="NoWrap" Text="{Binding ContactNumber}" FontSize="12" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+                        </StackLayout>
+                        <Label Grid.Column="2" TextColor="#474747" LineBreakMode="NoWrap" Text="{Binding CallTime}" FontSize="12" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" />
+                    </Grid>
+                    <BoxView BackgroundColor="Gray" HeightRequest="1" />
+                </StackLayout>
+            </DataTemplate>
+        </local:SimpleListView.ItemTemplate>
+    </local:SimpleListView>
 
 </ContentPage>
